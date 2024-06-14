@@ -6,23 +6,23 @@
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	binary_tree_node_t *queue[50];
+	binary_tree_t *queue[50];
 	int front = 0, rear = -1;
 	int flag = 0;
-	binary_true_t *current;
+	binary_tree_t *current;
 
 	if (tree == NULL)
 	{
 		return (0);
 	}
 
-	queue[++rear] = (binary_tree_node_t *)tree;
+	queue[++rear] = (binary_tree_t *)tree;
 
 	while (front <= rear)
 	{
 		current = queue[front++];
 
-		if (flag && (current->left == NULL || current->right ==NULL))
+		if (flag && (current->left == NULL || current->right == NULL))
 		{
 			return (0);
 		}
@@ -41,7 +41,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		}
 		else
 		{
-			flag = 1
+			flag = 1;
 		}
 	}
 
